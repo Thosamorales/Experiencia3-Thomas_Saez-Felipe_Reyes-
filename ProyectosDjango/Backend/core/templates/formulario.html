@@ -1,0 +1,205 @@
+<!doctype html> <!--Definicion de extrucctura de la sintaxis del documneto-->
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  {% load static %} 
+  <link rel="stylesheet"  type="text/css"  href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet"  type="text/css" href="{% static 'css/estilos.css' %}">
+  <link rel="stylesheet" href="{% static 'css/calendario.css' %}">
+  <link rel="stylesheet" type="text/css"  href="{% static 'css/estilos2.css' %}">
+  
+
+  <title>Plancton</title> 
+
+<!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">  
+
+<!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+  
+  <script>
+    $(function (){
+    {
+      $("#mi-formulario").validate({
+           rules: {
+                  email: {
+                      required: true,
+                      email: true
+                  },
+                  nom: "required",   
+                  
+              }, //rules
+        messages: {
+              email: {
+                  required: 'Ingresa tu correo electrónico',
+                  email: 'Formato de correo no válido'
+              },
+              nom: {
+                required: 'Ingresa su nombre',
+              },
+
+              comentarios: {
+                required: 'Ingresa un comentario',
+              },
+          
+          
+
+
+              
+
+
+
+          }//messages
+      }); //$('#mi-formulario').validate
+  }}); //function
+
+        function CambiaColor(a)
+        {
+            a.style.background = "#ccffcc";
+        }
+
+        function CambiarMayusculas()
+        {
+            var a = document.getElementById('nom');
+            a.value = a.value.toUpperCase();
+        }
+
+        function Mover(obj)
+        {
+           
+            obj.style.background="#ddffcc";
+           
+        }
+
+        function MoverFuera(obj)
+        {
+            
+            obj.style.background= "#e0ebeb";
+            
+        }
+
+    
+
+
+</script>
+
+ 
+</head>
+<body>
+<div >
+    <ul class="menu">
+        <a class="navbar-brand" href="{% url 'home' %}"> <!--Barra de navegacion -->
+          <img src="{% static 'img/logo.png' %}" width="62" height="62" alt="#">
+        </a>
+          <li><a href="{% url 'home' %}">Inicio</a></li>
+          <li><a href="{% url 'quinesSomos' %}">Quienes Somos</a> </li>
+          <li><a href="{% url 'Galeria' %}">Galeria</a> </li>
+          <a href="{% url 'formularioRE' %}"  class="btn btn-danger" value="Comentar">Registrate</a> 
+      </ul>
+    </div>
+
+      <div class="conten">
+        <h1>Contactanos</h1>
+        <i><h4>Como grupo nos interesa saber mas de ti, es por aquello que nos gustaría saber que es lo que piensas acerca de plancton, 
+          inquietud o propuesta que te gustaría aportar para darles siempre lo mejor  </h4></i> 
+          
+      </div>
+      <br><br>
+
+    <!--formulario-->
+    <div class="container">
+
+      <form name="datos" id="datos">
+        <div class="subti2" onmouseover="style.color = 'green'" onmouseout="style.color= 'black'">
+          LLena el formulario y nos pondremos en contacto en brevedad
+
+        </div><br>
+        
+          <div class="form-group">
+              <label for="nom">Nombre: </label>
+              <input type="text" class="form-control" id="nom" name="nom" onfocus="CambiaColor(this)" onchange="CambiarMayusculas()" required>
+          </div>
+
+          <div class="form-group">
+              <label for="email">Correo Electrónico: </label>
+              <input type="email" class="form-control" id="email"  name="email" onfocus="CambiaColor(this)" required placeholder="nombre@dominio.cl">
+          </div>
+
+          <div class="form-group" > 
+              <label for="comentarios">Deje aquí sus comentarios</label>
+              <textarea class="form-control" rows="5" id="comentarios" name="comentarios"  onmouseover="Mover(this)" onmouseout="MoverFuera(this)" required placeholder="Escribe aqui..."></textarea>
+            </div> 
+            <input type="submit" class="btn btn-success" id="enviar" value="Enviar">
+      
+  </div> <br><br><br><br>
+<!--Footer-->
+<footer>
+  <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" width="120" height="120" alt="#"></a>
+
+
+  <div class="footer-content">
+    <h3>Plancton</h3>
+    <!--Calendario-->
+    <div class="root">
+      <div class="calendar" id="calendar">
+
+      </div>
+  </div>
+  <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+
+  <script  type="text/javascript" src="{% static 'js/calendariojs.js' %}"></script>
+  <script type="text/javascript">
+      let calendar = new Calendar('calendar');
+      calendar.getElement().addEventListener('change', e => {
+          console.log(calendar.value().format('LLL'));
+      });
+
+
+  </script>
+    <p>Siguenos en Nuestras redes sociales</p>
+    <ul class="redesS">
+      <li><a class="navbar-brand" href="https://www.facebook.com/profile.php?id=100080142220338">
+        <img src="{% static 'img/logoface.png' %}" width="62" height="62" alt="#">      </a></li>
+
+      <li><a class="navbar-brand" href="https://instagram.com/planctonplantas?r=nametag">
+        <img src="{% static 'img/logoinsta.png' %}" width="62" height="62" alt="#">
+      </a></li>
+
+      <li><a class="navbar-brand" href="https://www.youtube.com/channel/UCwLl9DLFCBaIDgfOKvZSS-A">
+        <img src="{% static 'img/logoyou.png' %}" width="62" height="62" alt="#">
+      </a></li>
+
+      
+
+    </ul>
+    <div>
+    <h6>Dejanos algun comentario</h6>
+    <ul class="redesS">
+      <li><a class="navbar-brand" href="{% url 'formulario' %}">
+        <img src="{% static 'img/escribenos.png' %}" width="62" height="62" alt="#">
+      </a></li></ul>
+    </div>
+
+ 
+  
+    <div class=" footer-bottom">
+    <i><p>copyright &copy;2022 Plancton.Felipe_Reyes_Thomas Saez</p></i>
+
+    </div>
+</footer>   
+</body>
+</html>

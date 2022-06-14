@@ -1,0 +1,337 @@
+body{
+    background: white;
+}
+
+.body1{
+    background-color: #ffcc99; 
+}
+
+.body2{
+    background-color: MediumSeaGreen; 
+}
+
+.fondo{
+    background-color: blue;
+} 
+
+.color{
+    color: white;
+}
+
+
+.caja{
+    background-color: #ccffcc;
+    width: 90%;
+    border: 2px solid green;
+    padding: 30px;
+    margin: 20px 20px ;
+    height: 550px;
+    margin-left: 5%;
+}
+
+.caja2{
+    background-color: #ccffcc;
+    width: 90%;
+    border: 2px solid green;
+    padding: 30px;
+    margin: 20px 20px ;
+    height: 650px;
+    margin-left: 5%;
+}
+
+.caja3{
+    background-color: #ccffcc;
+    width: 90%;
+    border: 2px solid green;
+    padding: 30px;
+    margin: 20px 20px ;
+    height: 550px;
+    margin-left: 5%;
+}
+
+.caja4{
+    background-color: #ccffcc;
+    width: 90%;
+    border: 2px solid green;
+    padding: 30px;
+    margin: 20px 20px ;
+    height: 750px;
+    margin-left: 5%;
+}
+
+
+.centrarimg{
+    margin-left: 8%;
+}
+
+.texcajatirulo{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+
+
+.menu{
+    list-style: none;
+    padding: 0%;
+    background: #2E8B57;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu li a{
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    display: block;
+}
+
+.menu li {
+    display: inline-block;
+    text-align: center;
+}
+
+.menu li a:hover{
+    background-color: black;
+}
+
+
+
+
+
+
+.menu2{
+    list-style: none;
+    padding: 0%;
+    background: white;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -1%;
+}
+
+.menu2 li a{
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    display: block;
+}
+
+.menu2 li {
+    display: inline-block;
+    text-align: center;
+}
+
+.menu2 li a:hover{
+    background-color: #2E8B57;
+}
+
+
+
+
+
+
+.editparrafos{
+    background-color: white;   
+}
+
+
+.texto1{
+    margin-left: -1%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.subtirulos{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.parrafos{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer{
+    background-color: #2E8B57;
+    height: auto;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 30px;
+    color: white;
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-content h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.redesS{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0; /*unidad relativa absoluta (a la raiz del domucumento la fuente que utulizamos se adapta a lo que eliga su usuario (tamaño de fuente)) */
+}
+
+.redesS li{
+    margin: 0 10px;
+}
+
+.redesS a{
+    text-decoration: none;
+    color: white;
+}
+
+.redesS a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+}
+
+.redesS a:hover i{
+    color: aqua;
+}
+
+.footer-bottom{
+    background-color: black;
+    width: 100%;
+    padding:  20px;
+    text-align: center;
+}
+
+.video{
+   margin-top: -1%;
+}
+
+
+.fondo1{
+    background-color: #ffcc99; 
+}
+
+.fondo2{
+    background-color: #ff9933; 
+    margin-top: 0%;
+}
+
+
+.parrafos2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 5%;
+ 
+}
+
+.mover{
+    list-style: none;
+    padding: 0%;
+    width: 100%;
+    margin-left: 70%;
+    margin-right: 0%;
+}
+
+
+.moneda{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    background: #004d1a;
+    font-family:consolas;
+}
+.btn-neon{
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #fff;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 24px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+.btn-neon:hover{
+    background: #b3ffb3;
+    box-shadow: 0 0 10px #b3ffb3, 0 0 40px #b3ffb3, 0 0 80px #b3ffb3;
+    transition-delay: 1s;
+ }
+.btn-neon span{
+    position: absolute;
+    display: block;
+}
+#span1{
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent,#e6e600);
+ }
+ .btn-neon:hover #span1{
+    left: 100%;
+    transition: 1s;
+}
+ #span3{
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent,#e6e600);
+}
+ .btn-neon:hover #span3{
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+#span2{
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#e6e600);
+}
+.btn-neon:hover #span2{
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+#span4{
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#e6e600);
+}
+.btn-neon:hover #span4{
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+.fondoInicio {
+    background-color: #e6e600;
+}
+

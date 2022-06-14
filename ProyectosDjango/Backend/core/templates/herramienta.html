@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% load static %} 
+  <link rel="stylesheet"  type="text/css"  href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet"  type="text/css" href="{% static 'css/estilos.css' %}">
+  <link rel="stylesheet" href="{% static 'css/calendario.css' %}">
+
+  <title>Plancton</title> 
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">  
+
+<!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>  
+    <ul class="menu">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img src="{% static 'img/logo.png' %}" width="62" height="62" alt="#">
+        </a>
+        <li><a href="{% url 'home' %}">Inicio</a></li>
+        <li><a href="{% url 'quinesSomos' %}">Quienes Somos</a> </li>
+        <li><a href="{% url 'Galeria' %}">Galeria</a> </li>
+        <a href="{% url 'formularioRE' %}"  class="btn btn-danger" value="Comentar">Registrate</a> 
+      </ul>
+      <ul class="menu2">
+          <i><li><a href="{% url 'Galeria' %}">Plantas</a></li></i>
+          <i><li><a href="{% url 'tierra' %}">Sustrato</a> </li></i>
+          <i><li><a href="{% url 'herramienta' %}">Herramientas</a> </li></i>
+
+      </ul>
+      <div class="texcajatirulo">
+      <u><h1>Nuestros articulos</h1></u>
+      </div>
+      <br><br>
+
+      <div class="caja2">
+          <div class="texcajatirulo">
+          <h4>Macetero</h4>
+          </div>
+
+        <div class="centrarimg">
+        <img src="{% static 'img/macetero1.jpg' %}" width="30%" > 
+        <img src="{% static 'img/macetero2.jpg' %}" width="30%" > 
+        <img src="{% static 'img/macetero3.jpg' %}" width="30%" >
+        </div>
+        
+        <br><br> 
+        <div class="parrafos">
+        <h5>Todos nuestros maceteros o estantes para macetas son construidos por uno de nuestros miembros el que se dedica a el armado de estos
+            totalmente con madera reciclada o de segunda utilidad.</h5>
+        </div><br>
+        <div> 
+          <a href="{% url 'formulario' %}"  class="btn btn-success" value="Comentar">Comentar</a>
+        </div>
+      </div>
+
+      <br><br> 
+      <div class="caja4">
+        <div class="texcajatirulo">
+        <h4>Kit para jardineria</h4>
+        </div>
+
+      <div class="centrarimg">
+      <img src="{% static 'img/articulos2.jpg' %}" width="30%" > 
+      <img src="{% static 'img/articulos1.jpg' %}" width="30%" > 
+      <img src="{% static 'img/articulos3.jpg' %}" width="30%" >
+      </div>
+      
+      <br><br> 
+      <div class="parrafos">
+      <h5>Además de la cosecha, los estudios demuestran que los jardines aportan varios beneficios tangibles . 
+          Mejoran nuestro bienestar físico y psicológico, particularmente a medida que envejecemos, es por esto que 
+          nosotros no encargamos de brindarte los mejores kit a la hora de iniciar en el gran mundo de la jardineria.</h5>
+      </div>
+      <div> 
+        <a href="{% url 'formulario' %}"  class="btn btn-success" value="Comentar">Comentar</a>
+      </div>
+    </div>
+    <br><br>
+    <div class="caja2">
+        <div class="texcajatirulo">
+        <h4>Tierra de Hoja</h4>
+        </div>
+
+      <div class="centrarimg">
+      <img src="{% static 'img/manguera2.jpg' %}" width="30%" > 
+      <img src="{% static 'img/manguera1.jpg' %}" width="30%" > 
+      <img src="{% static 'img/manguera3.jpg' %}" width="30%" >
+      </div>
+      
+      <br><br> 
+      <div class="parrafos">
+      <h5>El uso de mangueras extensibles es sumamente útil en las tareas que necesitan del agua como regar 
+        Al estar fabricadas con látex, en su mayoría, son muy resistentes. De hecho, destacan por su larga duración, ya 
+        que no suelen sufrir de torceduras, quiebres o nudos. Tenemos de diferentes colores y regar ya no sera lo mismo. </h5>
+      </div>
+      <div> 
+        <a href="{% url 'formulario' %}"  class="btn btn-success" value="Comentar">Comentar</a>
+      </div>
+    </div>
+    <div class="moneda">
+      <a href="{% url 'moneda' %}" class="btn-neon">
+        <span id="span1"></span>
+        <span id="span2"></span>
+        <span id="span3"></span>
+        <span id="span4"></span>
+        Conoce el valor de tu moneda
+      </a>
+     </div><br>
+
+
+
+<!--Footer-->
+<footer>
+  <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" width="120" height="120" alt="#"></a>
+
+
+  <div class="footer-content">
+    <h3>Plancton</h3>
+    <!--Calendario-->
+    <div class="root">
+      <div class="calendar" id="calendar">
+
+      </div>
+  </div>
+  <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+  <script  type="text/javascript" src="{% static 'js/calendariojs.js' %}"></script>
+  <script type="text/javascript">
+      let calendar = new Calendar('calendar');
+      calendar.getElement().addEventListener('change', e => {
+          console.log(calendar.value().format('LLL'));
+      });
+
+
+  </script>
+    <p>Siguenos en Nuestras redes sociales</p>
+    <ul class="redesS">
+      <li><a class="navbar-brand" href="https://www.facebook.com/profile.php?id=100080142220338">
+        <img src="{% static 'img/logoface.png' %}" width="62" height="62" alt="#">      </a></li>
+
+      <li><a class="navbar-brand" href="https://instagram.com/planctonplantas?r=nametag">
+        <img src="{% static 'img/logoinsta.png' %}" width="62" height="62" alt="#">
+      </a></li>
+
+      <li><a class="navbar-brand" href="https://www.youtube.com/channel/UCwLl9DLFCBaIDgfOKvZSS-A">
+        <img src="{% static 'img/logoyou.png' %}" width="62" height="62" alt="#">
+      </a></li>
+
+      
+
+    </ul>
+    <div>
+    <h6>Dejanos algun comentario</h6>
+    <ul class="redesS">
+      <li><a class="navbar-brand" href="{% url 'formulario' %}">
+        <img src="{% static 'img/escribenos.png' %}" width="62" height="62" alt="#">
+      </a></li></ul>
+    </div>
+
+ 
+  
+    <div class=" footer-bottom">
+    <i><p>copyright &copy;2022 Plancton.Felipe_Reyes_Thomas Saez</p></i>
+
+    </div>
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+    
+</body>
+</html>

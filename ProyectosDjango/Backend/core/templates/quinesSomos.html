@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% load static %} 
+  <link rel="stylesheet"  type="text/css"  href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet"  type="text/css" href="{% static 'css/estilos.css' %}">
+  <link rel="stylesheet" href="{% static 'css/calendario.css' %}">
+
+  <title>Plancton</title> 
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">  
+
+<!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+<div class="body1">
+
+    <ul class="menu">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img src="{% static 'img/logo.png' %}" width="62" height="62" alt="#">
+        </a>
+        <li><a href="{% url 'home' %}">Inicio</a></li>
+        <li><a href="{% url 'quinesSomos' %}">Quienes Somos</a> </li>
+        <li><a href="{% url 'Galeria' %}">Galeria</a> </li>
+        <a href="{% url 'formularioRE' %}"  class="btn btn-danger" value="Comentar">Registrate</a> 
+      </ul>
+      <div class="video">
+      <video width="100%" height="#" controls>
+        <source src="{% static 'mp4/video.mp4'%}" type="video/mp4">
+      </video>
+      </div>
+
+
+      
+    <div class="fondo1">
+        <div class="containe-fluidr">   
+          <div class="jumbotron jumbotron-fluid">
+            <img src="{% static 'img/quinesSomos.png' %}" width="30%" > 
+            <br><br>
+            <div class="parrafos2">
+            <i></i><h4>Somos un grupo de 5 vecinos que a causa de las secuelas de la pandemia varios tuvieron que renunciar a sus trabajos y buscar un nuevo rubro a partir 
+              de esta necesidad. Como equipo nos organizamos de tal forma que cada uno pose sus tareas y 
+              área especializada los cuales también capacitan al resto de vecinos, así acaparamos conocimientos de manera equitativa y de forma que todos puedan aportar. </h4>
+            </div>  
+          </div>
+          </div>
+        </div>
+        <div class="fondo2">
+            <div class="containe-fluidr">   
+              <div class="jumbotron jumbotron-fluid">
+                <img src="{% static 'img/mision.png' %}" width="30%" > 
+                <br><br>
+                <div class="parrafos2">
+                <h4>Nuestra misión como pyme es implementar en la sociedad el tema del reciclaje para que hoy y futuras generación cambien la manera de hacer las cosas,
+                   siendo la primera pyme en generar productos que no dañen el ecosistema y dejando un huella en el mundo.</h4>
+                </div>  
+              </div>
+              </div>
+            </div>
+
+            <div class="fondo1">
+                <div class="containe-fluidr">   
+                  <div class="jumbotron jumbotron-fluid">
+                    <img src="{% static 'img/vision.png' %}" width="30%" > 
+                    <br><br>
+                    <div class="parrafos2">
+                    <h4>Somos una pyme la cual se preocupa por los daños que se genera hoy en día en el ecosistema,
+                       nos queremos plantear un futuro que sea deseable, que sea lo suficientemente claro, y motivador para otros.</h4>
+                    </div>  
+                  </div>
+                  </div>
+                </div>
+
+
+
+<!--Footer-->
+<footer>
+  <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" width="120" height="120" alt="#"></a>
+
+
+  <div class="footer-content">
+    <h3>Plancton</h3>
+    <!--Calendario-->
+    <div class="root">
+      <div class="calendar" id="calendar">
+
+      </div>
+  </div>
+  <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+  <script  type="text/javascript" src="{% static 'js/calendariojs.js' %}"></script>
+  <script type="text/javascript">
+      let calendar = new Calendar('calendar');
+      calendar.getElement().addEventListener('change', e => {
+          console.log(calendar.value().format('LLL'));
+      });
+
+
+  </script>
+    <p>Siguenos en Nuestras redes sociales</p>
+    <ul class="redesS">
+      <li><a class="navbar-brand" href="https://www.facebook.com/profile.php?id=100080142220338">
+        <img src="{% static 'img/logoface.png' %}" width="62" height="62" alt="#">      </a></li>
+    
+        <li><a class="navbar-brand" href="https://instagram.com/planctonplantas?r=nametag">
+        <img src="{% static 'img/logoinsta.png' %}" width="62" height="62" alt="#">
+        </a></li>
+    
+        <li><a class="navbar-brand" href="https://www.youtube.com/channel/UCwLl9DLFCBaIDgfOKvZSS-A">
+        <img src="{% static 'img/logoyou.png' %}" width="62" height="62" alt="#">
+        </a></li>
+
+      
+
+    </ul>
+    <div>
+    <h6>Dejanos algun comentario</h6>
+    <ul class="redesS">
+      <li><a class="navbar-brand" href="{% url 'formulario' %}">
+        <img src="{% static 'img/escribenos.png' %}" width="62" height="62" alt="#">
+      </a></li></ul>
+    </div>
+
+ 
+  
+    <div class=" footer-bottom">
+    <i><p>copyright &copy;2022 Plancton.Felipe_Reyes_Thomas Saez</p></i>
+
+    </div>
+</footer>
+  
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+</div>  
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!doctype html> <!--Definicion de extrucctura de la sintaxis del documneto-->
+<html>
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">  
+
+<!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+  {% load static %} 
+  <link rel="stylesheet"  type="text/css"  href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet"  type="text/css" href="{% static 'css/estilos.css' %}">
+  <link rel="stylesheet" href="{% static 'css/calendario.css' %}">
+  <link rel="stylesheet"  type="text/css" href="{% static 'css/color.css' %}">
+  
+
+  <title>Plancton</title> 
+
+
+  <style>
+    body {
+        font-family: Arial;
+      }
+
+    .error-control {
+        border: 1px solid red;
+    }
+
+    label.error {
+        color: red;
+        width: 200px;
+        font-size: 0.8em;
+        margin-top: -5px;
+        margin-bottom: 10px;
+    }  
+
+</style>
+
+<script>
+   
+    $(function() 
+    {
+      $("#formulario").validate({
+           rules: {
+                  codigo: "required",
+                  nombreIn: "required",
+                  Cantidad: "required",
+                  },   
+                  
+             messages: 
+              {
+              codigo: {
+                  required: 'Ingresa Codigo',
+                },
+              nombreIn: {
+                  required: 'Ingresa Nombre',
+              },
+              Cantidad:{
+                  required: 'Ingrese Cantidad',
+                  
+              }, 
+          } 
+      }); 
+  });
+</script>
+
+</head>
+<body>
+    
+    <ul class="menu">
+      <a class="navbar-brand" href="{% url 'home' %}"> <!--Barra de navegacion -->
+        <img src="{% static 'img/logo.png' %}" width="62" height="62" alt="#">
+      </a>
+        <li><a href="{% url 'home' %}">Inicio</a></li>
+        <li><a href="{% url 'quinesSomos' %}">Quienes Somos</a> </li>
+        <li><a href="{% url 'Galeria' %}">Galeria</a> </li> 
+       
+    </ul>
+    {% if user.is_authenticated %}
+
+    <div class="container">
+        <div class="row">
+            <h2>Crear Producto</h2>
+        </div>
+
+            <div class="row">
+                <form method="POST" action="#" id="formulario" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        {{ Inventario_Form.codigo.label }}
+                        {{ Inventario_Form.codigo }}
+                    </div>
+                     
+                    <div class="form-group">
+                        {{ Inventario_Form.nombreIn.label }}
+                        {{ Inventario_Form.nombreIn }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ Inventario_Form.Cantidad.label }}
+                        {{ Inventario_Form.Cantidad }}
+                    </div>
+
+                    <div class="form-group">
+                      {{ Inventario_Form.imagen.label }}
+                      {{ Inventario_Form.imagen }}
+                  </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md">
+
+                            <input type="submit" class="btn btn-primary" value="Crear">
+                            <input type="reset" class="btn btn-danger" value="Limpiar">
+                            <a href="{% url 'inventario' %}" class="btn btn-info">Volver</a>
+                            
+                        </div>
+                    </div>
+					
+                </form>
+            </div>
+    </div> <br><br>
+
+    {% else %} 
+    <br><br><br><br>
+    <h2 style="color:red; text-align:center">No tiene permisos de Administrador</h2> <br>
+    <center><img src="{% static 'img/pare.png' %}" width="500" height="500" alt="#"></center>   
+    {% endif %} <br><br>
+
+<!--Footer-->
+<footer>
+    <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" width="120" height="120" alt="#"></a>
+
+
+    <div class="footer-content">
+      <h3>Plancton</h3>
+      <!--Calendario-->
+      <div class="root">
+        <div class="calendar" id="calendar">
+
+        </div>
+    </div>
+    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+    <script  type="text/javascript" src="{% static 'js/calendariojs.js' %}"></script>
+    <script type="text/javascript">
+        let calendar = new Calendar('calendar');
+        calendar.getElement().addEventListener('change', e => {
+            console.log(calendar.value().format('LLL'));
+        });
+
+
+    </script>
+      <p>Síguenos en Nuestras redes sociales</p>
+      <ul class="redesS">
+        <li><a class="navbar-brand" href="https://www.facebook.com/profile.php?id=100080142220338">
+          <img src="{% static 'img/logoface.png' %}" width="62" height="62" alt="#">
+        </a></li>
+
+        <li><a class="navbar-brand" href="https://instagram.com/planctonplantas?r=nametag">
+          <img src="{% static 'img/logoinsta.png' %}" width="62" height="62" alt="#">
+        </a></li>
+
+        <li><a class="navbar-brand" href="https://www.youtube.com/channel/UCwLl9DLFCBaIDgfOKvZSS-A">
+          <img src="{% static 'img/logoyou.png' %}" width="62" height="62" alt="#">
+        </a></li>
+
+        
+
+      </ul>
+      <div>
+      <h6>Déjanos algún comentario</h6>
+      <ul class="redesS">
+        <li><a class="navbar-brand" href="{% url 'formulario' %}">
+          <img src="{% static 'img/escribenos.png' %}" width="62" height="62" alt="#">
+        </a></li></ul>
+      </div>
+
+   
+    
+      <div class=" footer-bottom">
+      <i><p>copyright &copy;2022 Plancton.Felipe_Reyes_Thomas Saez</p></i>
+
+      </div>
+  </footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+
+</body>
+</html>

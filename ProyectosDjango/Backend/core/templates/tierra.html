@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+   
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% load static %} 
+  <link rel="stylesheet"  type="text/css"  href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet"  type="text/css" href="{% static 'css/estilos.css' %}">
+  <link rel="stylesheet" href="{% static 'css/calendario.css' %}">
+
+  <title>Plancton</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">  
+
+<!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+<body>  
+    <ul class="menu">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img src="{% static 'img/logo.png' %}" width="62" height="62" alt="#">
+        </a>
+        <li><a href="{% url 'home' %}">Inicio</a></li>
+        <li><a href="{% url 'quinesSomos' %}">Quienes Somos</a> </li>
+        <li><a href="{% url 'Galeria' %}">Galeria</a> </li>
+        <a href="{% url 'formularioRE' %}"  class="btn btn-danger" value="Comentar">Registrate</a> 
+      </ul>
+      <ul class="menu2">
+        <i><li><a href="{% url 'Galeria' %}">Plantas</a></li></i>
+        <i><li><a href="{% url 'tierra' %}">Sustrato</a> </li></i>
+        <i><li><a href="{% url 'herramienta' %}">Herramientas</a> </li></i>
+      </ul>
+      <div class="texcajatirulo">
+      <u><h1>Seccion Sustrato</h1></u>
+      </div>
+      <br><br>
+
+      <div class="caja">
+          <div class="texcajatirulo">
+          <h4>Tierra preparada</h4>
+          </div>
+
+        <div class="centrarimg">
+        <img src="{% static 'img/tierra3.jpg' %}" width="30%" > 
+        <img src="{% static 'img/tierra1.jpg' %}" width="30%" > 
+        <img src="{% static 'img/tierra2.jpg' %}" width="30%" >
+        </div>
+        
+        <br><br> 
+        <div class="parrafos">
+        <h5>Es el sustrato ideal para macetas porque tienen un buen drenaje de agua. Por lo general, la tierra preparada es la utilizada para un mejor crecimiento de las plantas ornamentales que colocas en las macetas,
+             jardineras, macizos y jardines.</h5>
+        </div><br>
+        <div> 
+          <a href="{% url 'formulario' %}"  class="btn btn-success" value="Comentar">Comentar</a>
+        </div>
+      </div>
+
+      <br><br> 
+      <div class="caja">
+        <div class="texcajatirulo">
+        <h4>Sustrato compuesto</h4>
+        </div>
+
+      <div class="centrarimg">
+      <img src="{% static 'img/tierra4.jpg' %}" width="30%" > 
+      <img src="{% static 'img/tierra5.jpg' %}" width="30%" > 
+      <img src="{% static 'img/tierra6.jpg' %}" width="30%" >
+      </div>
+      
+      <br><br> 
+      <div class="parrafos">
+      <h5>Mejora la estructura de suelo, evitando la compactación y el endurecimiento. 
+          Debido a la estructura porosa de la perlita se produce el correcto desplazamiento de agua, 
+          aire y nutrientes hasta las raíces y un rápido enraizamiento, 
+          garantizando una estructura densa en raíces nuestra calidad es completemente diferente al mercado.</h5>
+      </div><br>
+      <div> 
+        <a href="{% url 'formulario' %}"  class="btn btn-success" value="Comentar">Comentar</a>
+      </div>
+    </div>
+    <br><br>
+    <div class="caja2">
+        <div class="texcajatirulo">
+        <h4>Tierra de Hoja</h4>
+        </div>
+
+      <div class="centrarimg">
+      <img src="{% static 'img/tierra7.jpg' %}" width="30%" > 
+      <img src="{% static 'img/tierra8.jpg' %}" width="30%" > 
+      <img src="{% static 'img/tierra9.jpg' %}" width="30%" >
+      </div>
+      
+      <br><br> 
+      <div class="parrafos">
+      <h5>La tierra orgánica mejora la retención humedad y da mayor resistencia a la planta. 
+          Una gran ventaja es que se puede usar en todo tipo de plantas y si quieres que tus plantas crescan de una forma mas resistente 
+          no dudes en escribirnos. </h5>
+      </div><br>
+      <div> 
+        <a href="{% url 'formulario' %}"  class="btn btn-success" value="Comentar">Comentar</a>
+      </div>
+    </div>
+    <div class="moneda">
+      <a href="{% url 'moneda' %}" class="btn-neon">
+        <span id="span1"></span>
+        <span id="span2"></span>
+        <span id="span3"></span>
+        <span id="span4"></span>
+        Conoce el valor de tu moneda
+      </a>
+     </div><br>
+
+
+
+<!--Footer-->
+<footer>
+  <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" width="120" height="120" alt="#"></a>
+
+
+  <div class="footer-content">
+    <h3>Plancton</h3>
+    <!--Calendario-->
+    <div class="root">
+      <div class="calendar" id="calendar">
+
+      </div>
+  </div>
+  <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+  <script  type="text/javascript" src="{% static 'js/calendariojs.js' %}"></script>
+  <script type="text/javascript">
+      let calendar = new Calendar('calendar');
+      calendar.getElement().addEventListener('change', e => {
+          console.log(calendar.value().format('LLL'));
+      });
+
+
+  </script>
+    <p>Siguenos en Nuestras redes sociales</p>
+    <ul class="redesS">
+      <li><a class="navbar-brand" href="https://www.facebook.com/profile.php?id=100080142220338">
+        <img src="{% static 'img/logoface.png' %}" width="62" height="62" alt="#">      </a></li>
+    
+        <li><a class="navbar-brand" href="https://instagram.com/planctonplantas?r=nametag">
+        <img src="{% static 'img/logoinsta.png' %}" width="62" height="62" alt="#">
+        </a></li>
+    
+        <li><a class="navbar-brand" href="https://www.youtube.com/channel/UCwLl9DLFCBaIDgfOKvZSS-A">
+        <img src="{% static 'img/logoyou.png' %}" width="62" height="62" alt="#">
+        </a></li>
+
+      
+
+    </ul>
+    <div>
+    <h6>Dejanos algun comentario</h6>
+    <ul class="redesS">
+      <li><a class="navbar-brand" href="{% url 'formulario' %}">
+        <img src="{% static 'img/escribenos.png' %}" width="62" height="62" alt="#">
+      </a></li></ul>
+    </div>
+
+ 
+  
+    <div class=" footer-bottom">
+    <i><p>copyright &copy;2022 Plancton.Felipe_Reyes_Thomas Saez</p></i>
+
+    </div>
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+    
+</body>
+</html>
